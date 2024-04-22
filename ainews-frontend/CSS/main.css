@@ -22,6 +22,7 @@ body {
   font-size: large;
   color: black;
 }
+
 /* 로고 CSS */
 #logocontainer {
   text-transform: uppercase;
@@ -198,6 +199,11 @@ a:active {
 }
 
 /* 메인 뉴스 기사 */
+.newstext {
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: white;
+}
 .spantext {
   font-weight: bold;
   font-size: 35px;
@@ -211,7 +217,7 @@ a:active {
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-template-rows: auto auto auto auto;
-  row-gap: 20px;
+  row-gap: 40px;
   column-gap: 20px;
 }
 .newsitem {
