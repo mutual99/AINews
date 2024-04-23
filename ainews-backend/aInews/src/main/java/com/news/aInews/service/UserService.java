@@ -12,26 +12,26 @@ public class UserService {
 
     @Autowired
     private UserDAO dao;
-    
+
     // 추가
     public void insert(User user) {
         dao.save(user);
     }
-    
+
     // 수정
     public void update(User user) {
         if(dao.existsById(user.getNo())) {
             dao.save(user);
         }
     }
-    
+
     // 삭제
     public void delete(int no) {
         if(dao.existsById(no)) {
             dao.deleteById(no);
         }
     }
-    
+
     // 1개 보기
     public User select(int no) {
         return dao.findById(no).orElse(null);

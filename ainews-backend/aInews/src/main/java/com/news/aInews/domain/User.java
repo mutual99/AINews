@@ -16,12 +16,12 @@ public class User {
     @Id
     private int no;
     @Column
-    private String name;
-    @Column
-    private String email;
-    @Column
-    private String nickname;
+    private String id;
     @Column
     private String password;
+    @Column
+    private String name;
+    @Column
+    private String nickname;
 
 }
