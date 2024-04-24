@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #15e73f;
-  --secondary-color: #09e4c7;
+  --primary-color: #ccd4ce;
+  --secondary-color: #ccd4ce;
   --black: #000000;
   --white: #ffffff;
   --gray: #efefef;
@@ -89,6 +89,7 @@ body {
   border-radius: 0.5rem;
   border: 0.125rem solid var(--white);
   outline: none;
+  margin: auto auto 20px auto;
 }
 
 .input-group input:focus {
@@ -265,7 +266,7 @@ body {
   z-index: 6;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-bottom-right-radius: max(50vw, 50vh);
-  border-top-left-radius: max(50vw, 50vh);
+  border-top-left-radius: max(100vw, 50vh);
 }
 
 .container.sign-in::before {
@@ -350,5 +351,6 @@ body {
 /* 버튼 */
 a {
   text-decoration: none;
-  color: white;
+  color: rgb(55, 53, 53);
+  font-weight: bold;
 }

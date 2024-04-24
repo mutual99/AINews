@@ -18,28 +18,35 @@ h1 {
   margin-left: 80%;
   text-align: center;
 }
-.boardgrid {
-  margin-top: 40px;
-  display: grid;
-  grid-template-rows: auto;
+.flexcontainer {
+  background-color: yellowgreen;
+  margin-top: 20px;
+  display: flex;
+}
+.flexitem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
 }
 .news {
-  border-bottom: 2px solid black;
-  background-color: yellow;
+  font-size: 30px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.newstext {
+  background-color: pink;
   margin-top: 10px;
-  width: 100%;
-  height: 300px;
-  font-size: 20px;
+  height: 200px;
 }
 .newsDate {
-  font-weight: 300;
-  display: flex;
-  justify-content: end;
+  margin-right: 20px;
 }
-
 .pagination {
-  margin-top: 30px;
-  margin-bottom: 20px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  margin: 30px auto 20px auto;
 }
