@@ -23,12 +23,16 @@ public class User implements UserDetails {
 
     @Id
     private String id;
+
     @Column
     private String password;
+
     @Column
     private String name;
+
     @Column
     private String nickname;
+
     @Column
     private String role;    // 권한 관련 컬럼
 
