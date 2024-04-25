@@ -169,24 +169,20 @@ a:active {
     transform: translate(-50%, 0);
   }
 }
-
 .fa-solid {
   margin-right: 20px;
 }
-
 .topbar {
   width: calc(100vw);
 }
 .nav-link {
   font-size: 20px;
 }
-
 .fonth1 {
   font-size: 45px;
   font-weight: bold;
   margin-left: 10%;
 }
-
 .myname {
   display: flex;
   align-items: center;
@@ -198,11 +194,15 @@ a:active {
 .qna {
   padding: 100px;
 }
-
 .mainnewscon div span {
   margin-left: -90px;
 }
-
+.btn {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  font-weight: bold;
+}
 /* 메인 뉴스 기사 */
 .newstext {
   margin: 10px auto auto auto;
