@@ -1,38 +1,22 @@
+/* =========================== */
 var slideIndex = 1;
 showSlides(slideIndex);
 
-function plusSlides1(n) {
+function plusSlides(n) {
   showSlides((slideIndex += n));
 }
-function plusSlides2(m) {
-  showSlides((slideIndex += m));
-}
+
 function showSlides(n) {
   var i;
-  var j;
-  var slides1 = document.getElementsByClassName("mySlides-1");
-  var slides2 = document.getElementsByClassName("mySlides-2");
-  if (n > slides1.length) {
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {
     slideIndex = 1;
   }
   if (n < 1) {
-    slideIndex = slides1.length;
+    slideIndex = slides.length;
   }
-  for (i = 0; i < slides1.length; i++) {
-    slides1[i].style.display = "none";
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
   }
-  slides1[slideIndex - 1].style.display = "block";
-
-  if (m > slides2.length) {
-    slideIndex = 1;
-  }
-  if (m < 1) {
-    slideIndex = slides2.length;
-  }
-  for (j = 0; j < slides2.length; j++) {
-    slides2[j].style.display = "none";
-  }
-  slides2[slideIndex - 1].style.display = "block";
+  slides[slideIndex - 1].style.display = "block";
 }
-
-/* =========================== */
