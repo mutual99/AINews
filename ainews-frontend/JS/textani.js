@@ -3,7 +3,7 @@ var $ = function (id) {
 };
 var inc = 0;
 var out = 0;
-var str = "what news do you want...?";
+var str = "What news do you want...?";
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@$%&";
 var t;
 
@@ -25,4 +25,4 @@ $("anim").innerHTML = "";
 setTimeout(function () {
   document.getElementById("loading-screen").style.display = "none";
   document.getElementById("content").style.display = "block";
-}, 10000);
+}, 100);
