@@ -3,15 +3,15 @@ package com.news.ainews.controller;
 import com.news.ainews.config.TokenProvider;
 import com.news.ainews.domain.User;
 import com.news.ainews.domain.UserDTO;
+import com.news.ainews.repo.UserDAO;
 import com.news.ainews.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController
 @CrossOrigin(origins = {"*"}, maxAge = 6000)
@@ -27,7 +27,7 @@ public class UserController {
     // 비밀번호 암호화를 담당하는 인터페이스로, 'BCryptPasswordEncoder'를 
     // 사용하여 사용자의 비밀번호를 해싱
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-    
+
     // 회원가입
     // 클라이언트로부터 받은 사용자 정보를 이용하여 새로운 사용자를 생성하고,
     // 그 결과를 클라이언트에게 반환
@@ -70,4 +70,16 @@ public class UserController {
         return ResponseEntity.badRequest().build();
     }
 
+    @DeleteMapping("/deleteuser")
+    public ResponseEntity deleteuser(@RequestParam("id") String id,
+                                     @RequestParam("password") String password,
+                                     RedirectAttributes redirectAttributes) {
+        try {
+            service.deleteUser(id, password, passwordEncoder);
+            redirectAttributes.addFlashAttribute("successMessage" , "회원탈퇴가 완료되었습니다.");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }

@@ -1,16 +1,22 @@
 package com.news.ainews.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "posts")
 @Data
-public class Post {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer no;
+
+    @Column
+    private String category;
 
     @Column
     private String title;

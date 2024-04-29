@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EnableJpaAuditing
-@EnableJpaRepositories(basePackages = "com.news.ainews")
+@EnableJpaRepositories(basePackages = "com.news.aInews")
 public class JpaConfig {
 
     @PersistenceContext

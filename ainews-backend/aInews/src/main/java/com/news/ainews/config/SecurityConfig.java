@@ -32,9 +32,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize ->
                         authorize
                                 // 아래 경로는 모든 사용자에게 허용
+                                .requestMatchers("/signUp", "/login", "/api/public/**", "/board/write").permitAll()
                                 // '/api/product' 경로는 USER 역할을 가진 사용자에게만 허용
                                 // 그외의 모든 요청은 인증이 필요
-                                .requestMatchers("/signUp", "/login", "/api/public/**", "/posts/**").permitAll()
                                 .requestMatchers("/api/product").hasRole("USER")
                                 .anyRequest().authenticated()
                 )

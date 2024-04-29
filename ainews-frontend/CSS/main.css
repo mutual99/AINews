@@ -267,12 +267,7 @@ a:active {
 }
 
 /* 각각의 이미지 */
-.mySlides-1,
-.mySlides-2,
-.mySlides-3,
-.mySlides-4,
-.mySlides-5,
-.mySlides-6 {
+.mySlides {
   display: none;
   position: relative;
 }
