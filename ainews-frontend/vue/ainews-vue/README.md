@@ -1,4 +1,4 @@
-# ainews-vue
+# movie-vue
 
 ## Project setup
 ```
