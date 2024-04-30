@@ -12,34 +12,33 @@ public class BoardService {
 
     @Autowired
     private BoardDAO dao;
-    
-    
+
     // 작성
-    public void write(Board board) {
+    public void addBoard(Board board) {
         dao.save(board);
     }
 
     // 수정
-    public void updwrite(Board board) {
+    public void updBoard(Board board) {
         if(dao.existsById(board.getNo())) {
             dao.save(board);
         }
     }
 
     // 삭제
-    public void delwrite(int no) {
+    public void delBoard(int no) {
         if(dao.existsById(no)) {
             dao.deleteById(no);
         }
     }
-    
-    // 보기
-    public Board select(int no) {
-        return dao.findById(no).orElse(null);
+
+    // 전체보기
+    public List<Board> selects() {
+        return dao.findAll();
     }
     
-    // 전체 보기
-    public List<Board> select () {
-        return dao.findAll();
+    // 1개 보기
+    public Board selct(int no) {
+        return dao.findById(no).orElse(null);
     }
 }

@@ -23,6 +23,8 @@ public class QBoard extends EntityPathBase<Board> {
 
     public final StringPath content = createString("content");
 
+    public final StringPath nickname = createString("nickname");
+
     public final NumberPath<Integer> no = createNumber("no", Integer.class);
 
     public final StringPath title = createString("title");

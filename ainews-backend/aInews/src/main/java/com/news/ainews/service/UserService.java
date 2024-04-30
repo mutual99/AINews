@@ -3,10 +3,9 @@ package com.news.ainews.service;
 import com.news.ainews.domain.User;
 import com.news.ainews.repo.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -15,28 +14,44 @@ public class UserService {
     private UserDAO dao;
 
     // 회원가입
-    public User create(User user) {
-        return dao.save(user);
-    }
-    
-    // 로그인
-    // 주어진 아이디(id)를 사용하여 데이터베이스에서 해당 사용자를 검색하고, 패스워드를 검증하기 위해
-    // PasswordEncoder를  사용하여 주어진 비밀번호(password) 해싱하여 저장된 패스워드와 비교
-    // 만약 사용자가 존재하고 비밀번호가 일치하면 해당 사용자 객체를 반환하고, 그렇지 않다면 null를 반환
-    public User login(String id, String password, PasswordEncoder encoder) {
-        User user = dao.findById(id).orElse(null);
-        if(user!=null && encoder.matches(password, user.getPassword())) {
-            return user;
-        }
-        return null;
+    public void addUser(User user) {
+        dao.save(user);
     }
 
-    public void deleteUser(String id, String password, PasswordEncoder encoder) {
+    // 로그인
+    public User login(String id, String password) {
         User user = dao.findById(id).orElse(null);
-        if (user != null && encoder.matches(password, user.getPassword())) {
-            dao.delete(user);
+        if(id.equals(user.getId()) && password.equals(user.getPassword())) {
+            System.out.println("서비스 부분 로그인 성공");
+            return user;
         } else {
-            throw new RuntimeException("아이디 또는 비밀번호가 틀림");
+            System.out.println("서비스 부분 로그인 실패");
+            return null;
         }
+    }
+
+    // 수정
+    public void updUser(User user) {
+        if(dao.existsById(user.getId())) {
+            dao.save(user);
+        }
+    }
+
+    // 삭제
+    public void delUser(String id) {
+        if(dao.existsById(id)) {
+            dao.deleteById(id);
+        }
+    }
+
+    // 1개 보기
+    public User select(String id) {
+        System.out.println("유저 서비스 : " + id);
+        return dao.findById(id).orElse(null);
+    }
+
+    // 전체보기
+    public List<User> selects() {
+        return dao.findAll();
     }
 }
