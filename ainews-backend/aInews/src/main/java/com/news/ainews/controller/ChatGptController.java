@@ -15,7 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-
+// https://chanhan.tistory.com/entry/Spring-Boot-ChatGptAPI-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
 @RestController
 public class ChatGptController {
 
@@ -36,7 +36,7 @@ public class ChatGptController {
         httpHeaders.add("Authorization", "Bearer " + key);
 
         ArrayList<Message> list = new ArrayList<>();
-        list.add(new Message("user",message));
+        list.add(new Message("user", message));
 
         Body body = new Body("gpt-3.5-turbo", list);
 
