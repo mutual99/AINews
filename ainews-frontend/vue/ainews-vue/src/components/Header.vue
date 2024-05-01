@@ -1,5 +1,11 @@
-<template></template>
+<template>
+  <div></div>
+</template>
 
-<script></script>
+<script>
+export default {
+  name: "HeaderComponent",
+};
+</script>
 
 <style></style>
