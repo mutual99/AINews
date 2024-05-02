@@ -335,5 +335,6 @@ const nowdata = dayjs().format("YYYY-MM-DD HH:mm:ss");
 </script>
 
 <style>
+@import "/src/assets/css/reset.css";
 @import "/src/assets/css/main.css";
 </style>

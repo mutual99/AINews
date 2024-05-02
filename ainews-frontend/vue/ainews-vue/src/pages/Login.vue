@@ -83,5 +83,6 @@
 <script></script>
 
 <style>
+@import "/src/assets/css/reset.css";
 @import "/src/assets/css/login.css";
 </style>
