@@ -1,0 +1,52 @@
+.bodynews {
+  background-color: #eee;
+  width: 70%;
+  margin: auto;
+  height: 100%;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 50px;
+  text-shadow: 5px 5px 5px gray;
+}
+.boardDate {
+  border-bottom: 1px solid black;
+  margin-left: 80%;
+  text-align: center;
+}
+.flexcontainer {
+  background-color: yellowgreen;
+  margin-top: 20px;
+  display: flex;
+}
+.flexitem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+.news {
+  font-size: 30px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.newstext {
+  background-color: pink;
+  margin-top: 10px;
+  height: 200px;
+}
+.newsDate {
+  margin-right: 20px;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto 20px auto;
+}
