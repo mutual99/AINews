@@ -7,6 +7,7 @@
       <br />
     </p>
   </div>
+
   <!-- 로고 -->
   <div class="logocon">
     <a href="" class="mainpage">
@@ -147,6 +148,7 @@
       </div>
     </div>
   </div>
+
   <!-- slider -->
   <div id="slidermain">
     <div class="image-box">
@@ -328,11 +330,7 @@
   </div>
 </template>
 
-<script setup>
-import dayjs from "dayjs";
-
-const nowdata = dayjs().format("YYYY-MM-DD HH:mm:ss");
-</script>
+<script></script>
 
 <style>
 @import "/src/assets/css/reset.css";

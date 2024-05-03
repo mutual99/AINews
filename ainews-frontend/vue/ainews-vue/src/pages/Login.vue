@@ -42,7 +42,13 @@
         <div class="sign-up-htm">
           <div class="group">
             <label for="user" class="label">Your ID</label>
-            <input id="user" type="text" class="input" />
+            <input
+              id="user"
+              type="text"
+              class="input"
+              v-model="user.regid"
+              placeholder="아이디 입력"
+            />
           </div>
 
           <div class="group">
@@ -51,24 +57,37 @@
               id="pass"
               type="password"
               class="input"
-              data-type="password"
+              v-model="user.regpwd"
+              placeholder="비밀번호 입력"
             />
           </div>
           <div class="group">
             <label for="pass" class="label">User Full Name</label>
             <input
-              id="pass"
-              type="password"
+              id="name"
+              type="text"
               class="input"
-              data-type="password"
+              v-model="user.regname"
+              placeholder="이름 입력"
             />
           </div>
           <div class="group">
             <label for="pass" class="label">NickName</label>
-            <input id="pass" type="text" class="input" />
+            <input
+              id="nickname"
+              type="text"
+              class="input"
+              v-model="user.regnickname"
+              placeholder="닉네임 입력"
+            />
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign Up" />
+            <input
+              type="submit"
+              class="button"
+              value="Sign Up"
+              @click="sendUser"
+            />
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -80,7 +99,29 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "CreatePage",
+  data() {
+    return {
+      user: {
+        regid: "",
+        regpwd: "",
+        regname: "",
+        regnickname: "",
+      },
+    };
+  },
+  methods: {
+    async sendUser() {
+      await this.$store.dispatch("insertUser", this.user);
+      this.user = { regid: "", regpwd: "", regname: "", regnickname: "" };
+      this.$router.push("/login");
+      alert(this.user);
+    },
+  },
+};
+</script>
 
 <style>
 @import "/src/assets/css/reset.css";
