@@ -61,6 +61,7 @@
           data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar"
           aria-label="Toggle navigation"
+          @click="getterUser"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -72,7 +73,7 @@
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              <span class="myname">펭귄</span>
+              <span class="myname">{{ ninkname }}</span>
             </h5>
             <button
               type="button"
@@ -333,7 +334,14 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "GetterUser",
+  data() {
+    return {};
+  },
+};
+</script>
 
 <style>
 @import "/src/assets/css/reset.css";
