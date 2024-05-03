@@ -1,18 +1,32 @@
-import { adduser } from "@/api/user";
+import { adduser, userlogin, getuser } from "@/api/user";
 
 export default {
   state: {
-    users: [],
+    user: {},
   },
   mutations: {
-    setUser(state, users) {
-      state.users = users;
+    setUser(state, user) {
+      state.user = user;
+    },
+    getUser(state, user) {
+      state.user = user;
     },
   },
   actions: {
     async insertUser({ commit }, data) {
-      const response = await adduser(data);
-      commit("adduser", response.data);
+      console.log(data);
+      await adduser(data);
+      commit("setUser", data);
+    },
+    async login({ commit }, data) {
+      const result = await userlogin(data);
+      console.log(result.data.role);
+      commit("setUser", result.data);
+    },
+    async getterUser({ commit }, id) {
+      const result = await getuser(id);
+      console.log(result);
+      commit("getUser", result.id);
     },
   },
 };

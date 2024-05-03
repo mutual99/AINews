@@ -15,7 +15,13 @@
         <div class="sign-in-htm">
           <div class="group">
             <label for="user" class="label">Your ID</label>
-            <input id="user" type="text" class="input" />
+            <input
+              id="user"
+              type="text"
+              class="input"
+              v-model="login.id"
+              placeholder="아이디 입력"
+            />
           </div>
           <div class="group">
             <label for="pass" class="label">Password</label>
@@ -23,14 +29,20 @@
               id="pass"
               type="password"
               class="input"
-              data-type="password"
+              v-model="login.password"
+              placeholder="비밀번호 입력"
             />
           </div>
           <div class="group">
             <input id="check" type="checkbox" class="check" checked />
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign In" />
+            <input
+              type="submit"
+              class="button"
+              value="Sign In"
+              @click="userLogin"
+            />
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -46,7 +58,7 @@
               id="user"
               type="text"
               class="input"
-              v-model="user.regid"
+              v-model="user.id"
               placeholder="아이디 입력"
             />
           </div>
@@ -57,7 +69,7 @@
               id="pass"
               type="password"
               class="input"
-              v-model="user.regpwd"
+              v-model="user.password"
               placeholder="비밀번호 입력"
             />
           </div>
@@ -67,7 +79,7 @@
               id="name"
               type="text"
               class="input"
-              v-model="user.regname"
+              v-model="user.name"
               placeholder="이름 입력"
             />
           </div>
@@ -77,7 +89,7 @@
               id="nickname"
               type="text"
               class="input"
-              v-model="user.regnickname"
+              v-model="user.nickname"
               placeholder="닉네임 입력"
             />
           </div>
@@ -105,19 +117,27 @@ export default {
   data() {
     return {
       user: {
-        regid: "",
-        regpwd: "",
-        regname: "",
-        regnickname: "",
+        id: "",
+        password: "",
+        name: "",
+        nickname: "",
+      },
+      login: {
+        id: "",
+        password: "",
       },
     };
   },
   methods: {
     async sendUser() {
       await this.$store.dispatch("insertUser", this.user);
-      this.user = { regid: "", regpwd: "", regname: "", regnickname: "" };
+      this.user = { id: "", password: "", name: "", nickname: "" };
       this.$router.push("/login");
-      alert(this.user);
+    },
+    async userLogin() {
+      await this.$store.dispatch("login", this.login);
+      console.log(this.login);
+      this.$router.push("/");
     },
   },
 };

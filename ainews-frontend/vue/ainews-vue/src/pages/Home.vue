@@ -105,7 +105,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/login">Logout</a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="/login">login</a>
+              </li>
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -279,7 +281,8 @@
       <img
         src="/src/assets/image/economy.jpg"
         style="width: 100%; opacity: 0.5; z-index: -1"
-      /><span class="image-text"
+      />
+      <span class="image-text"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione veniam
         iusto cum expedita esse qui totam eos quas nam, praesentium officiis
         atque dolorem architecto nisi natus, inventore numquam tenetur
@@ -320,7 +323,7 @@
   <footer>
     <div class="footer">-㈜나몰라라컴퍼니-</div>
     <label>
-      {{ nowdata }}
+      <!-- 현재 날짜 -->
     </label>
   </footer>
   <!-- =========== -->
