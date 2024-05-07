@@ -137,6 +137,10 @@ export default {
     async userLogin() {
       await this.$store.dispatch("login", this.login);
       console.log(this.login);
+      if (this.login.id == "" || this.login.password == "") {
+        alert("아이디 또는 비밀번호를 입력하세요.");
+        return;
+      }
       this.$router.push("/");
     },
   },

@@ -73,7 +73,7 @@
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              <span class="myname">{{ ninkname }}</span>
+              <span class="myname">{{ nickname }}</span>
             </h5>
             <button
               type="button"
@@ -100,15 +100,22 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">MyPage</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Logout</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">login</a>
-              </li>
+              <div v-if="chk">
+                <li class="nav-item">
+                  <a class="nav-link" href="">MyPage</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">writeNews</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Logout</a>
+                </li>
+              </div>
+              <div v-if="!chk">
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">login</a>
+                </li>
+              </div>
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -336,9 +343,17 @@
 
 <script>
 export default {
-  name: "GetterUser",
+  name: "getterUser",
   data() {
-    return {};
+    return {
+      nickname: "",
+    };
+  },
+  methods: {
+    async nickname() {
+      await this.$store.dispatch("getterUser", this.nickname);
+      this.nickname =
+    },
   },
 };
 </script>

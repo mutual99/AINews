@@ -21,10 +21,11 @@ export default {
     async login({ commit }, data) {
       const result = await userlogin(data);
       commit("setUser", result.data);
-      localStorage.setItem("user", result.data.role);
+      localStorage.setItem("role", result.data.role);
     },
     async getterUser({ commit }, id) {
       const result = await getuser(id);
+      console.log(result);
       commit("getUser", result.id);
     },
   },
