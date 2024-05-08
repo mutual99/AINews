@@ -61,6 +61,7 @@
           data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar"
           aria-label="Toggle navigation"
+          @click="getterUser"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -104,12 +105,10 @@
                   <a class="nav-link" href="">MyPage</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/login" @click="logoutclear"
-                    >Logout</a
-                  >
+                  <a class="nav-link" href="">writeNews</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">writeNews</a>
+                  <a class="nav-link" href="/login">Logout</a>
                 </li>
               </div>
               <div v-if="!chk">
@@ -287,6 +286,10 @@
     <div class="newsboard">경제</div>
     <!-- 각각의 이미지 -->
     <div class="mySlides">
+      <img
+        src="/src/assets/image/economy.jpg"
+        style="width: 100%; opacity: 0.5; z-index: -1"
+      />
       <span class="image-text"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione veniam
         iusto cum expedita esse qui totam eos quas nam, praesentium officiis
@@ -295,7 +298,10 @@
       >
     </div>
     <div class="mySlides">
-      <span class="image-text"
+      <img
+        src="/src/assets/image/economy.jpg"
+        style="width: 100%; opacity: 0.5"
+      /><span class="image-text"
         >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae
         quasi cupiditate dolorum id, sunt error doloremque at ipsum incidunt,
         eos eum laborum voluptates quas culpa quam enim, reprehenderit labore
@@ -304,7 +310,10 @@
     </div>
 
     <div class="mySlides">
-      <span class="image-text"
+      <img
+        src="/src/assets/image/economy.jpg"
+        style="width: 100%; opacity: 0.5"
+      /><span class="image-text"
         >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa
         assumenda asperiores debitis quidem quas aspernatur adipisci vitae alias
         commodi nesciunt corrupti omnis quibusdam, neque vel. Magnam eveniet
@@ -337,15 +346,10 @@ export default {
   name: "getterUser",
   data() {
     return {
-      chk: localStorage.getItem("role"),
-      nickname: localStorage.getItem("nickname"),
+      nickname: "",
     };
   },
-  methods: {
-    async logoutclear() {
-      localStorage.clear();
-    },
-  },
+  methods: {},
 };
 </script>
 
