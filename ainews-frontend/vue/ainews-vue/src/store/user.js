@@ -21,8 +21,8 @@ export default {
     async login({ commit }, data) {
       const result = await userlogin(data);
       commit("setUser", result.data);
-      localStorage.setItem("role", result.data.role);
-      localStorage.setItem("nickname", result.data.nickname);
+      sessionStorage.setItem("role", result.data.role);
+      sessionStorage.setItem("nickname", result.data.nickname);
       console.log(result.data.role);
     },
     async getterUser({ commit }, id) {

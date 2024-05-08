@@ -30,7 +30,7 @@ export default {
         category: "",
         title: "",
         content: "",
-        nickname: localStorage.getItem("nickname"),
+        nickname: sessionStorage.getItem("nickname"),
       },
     };
   },

@@ -164,14 +164,14 @@ export default {
   name: "GetUser",
   data() {
     return {
-      chk: localStorage.getItem("role"),
-      nickname: localStorage.getItem("nickname"),
-      rolechk: localStorage.getItem("role") === "ROLE_ADMIN",
+      chk: sessionStorage.getItem("role"),
+      nickname: sessionStorage.getItem("nickname"),
+      rolechk: sessionStorage.getItem("role") === "ROLE_ADMIN",
     };
   },
   methods: {
     localremove() {
-      localStorage.clear();
+      sessionStorage.clear();
     },
   },
 };
