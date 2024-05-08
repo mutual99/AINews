@@ -31,5 +31,5 @@ export const getuser = async (id) => {
 
 // 전체 회원 정보
 export const getusers = async () => {
-  return await instance.get("/user");
+  return await instance.get("user");
 };

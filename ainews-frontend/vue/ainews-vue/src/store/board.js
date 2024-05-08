@@ -1,19 +1,19 @@
-import { getboards } from "@/api/board";
+import { addboard } from "@/api/board";
 
 export default {
   state: {
-    boards: [],
+    board: {},
   },
   mutations: {
-    getboards(state, boards) {
-      state.boards = boards;
+    setBoard(state, board) {
+      state.board = board;
     },
   },
   actions: {
-    async readBoard({ commit }) {
-      await getboards();
-      console.log(this.getboards);
-      commit("getboards");
+    async sendWrite({ commit }, data) {
+      console.log(data);
+      await addboard(data);
+      commit("setBoard", data);
     },
   },
 };

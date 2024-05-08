@@ -102,7 +102,7 @@
               </li>
               <div v-if="chk">
                 <li class="nav-item" v-if="rolechk">
-                  <a class="nav-link" href="">writeNews</a>
+                  <a class="nav-link" href="/write">writeNews</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/login" @click="localremove"

@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Header from "@/components/Header.vue";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
-import Header from "@/components/Header.vue";
+import Write from "@/pages/Write.vue";
 import Economy from "@/pages/Economy.vue";
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
     path: "/login",
     name: "Login",
     components: { default: Login },
+  },
+  {
+    path: "/write",
+    name: "Write",
+    components: { default: Write, header: Header },
   },
   {
     path: "/economy",
