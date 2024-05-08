@@ -1,8 +1,8 @@
 <template>
   <p>dksdsdfds</p>
   <div class="writing">
-    <select name="category" required v-model="board.category">
-      <option value="" selected disabled hidden>
+    <select name="category" v-model="board.category">
+      <option value="" required="required" selected disabled hidden>
         카테고리를 선택해주세요.
       </option>
       <option value="economy">경제</option>

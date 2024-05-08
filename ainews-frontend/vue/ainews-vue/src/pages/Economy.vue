@@ -1,9 +1,9 @@
 <template>
   <div class="bodynews">
-    <h1>경제</h1>
+    <p>경제</p>
     <div class="boardDate">
       <!-- 현재 날짜 스크립트 -->
-      {{ nowdate() }}
+      {{ nowdate }}
     </div>
     <div class="boardgrid">
       <div class="flexcontainer">
@@ -53,13 +53,7 @@ export default {
   data() {
     return {};
   },
-
-  methods: {
-    nowdate() {
-      let today = new Date();
-      document.write(today);
-    },
-  },
+  methods: {},
 };
 </script>
 
