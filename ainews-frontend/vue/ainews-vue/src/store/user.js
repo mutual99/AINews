@@ -25,10 +25,10 @@ export default {
       localStorage.setItem("nickname", result.data.nickname);
       console.log(result.data.role);
     },
-    async getterUser({ commit }, data) {
-      const result = await getuser(data);
+    async getterUser({ commit }, id) {
+      const result = await getuser(id);
       console.log(result);
-      commit("getUser", result.data);
+      commit("getUser", result.id);
     },
   },
 };
