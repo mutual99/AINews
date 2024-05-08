@@ -13,7 +13,7 @@ const routes = [
   {
     path: "/login",
     name: "Login",
-    components: { default: Login, header: Header },
+    components: { default: Login },
   },
   {
     path: "/economy",

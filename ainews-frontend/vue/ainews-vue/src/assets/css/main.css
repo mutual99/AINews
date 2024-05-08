@@ -43,12 +43,14 @@ body {
   color: transparent;
   background: linear-gradient(to right top, #000000, #ffffff);
   -webkit-background-clip: text;
+  background-clip: text;
   text-shadow: 5px 5px 10px gray;
 }
 .logotext2 {
   background: linear-gradient(to right top, #000000, #ffffff);
   color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
   text-shadow: 5px 5px 10px gray;
 }
 #flip {
@@ -198,6 +200,9 @@ a:active {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #simple-list-item-1 {
   margin-left: 15%;

@@ -12,6 +12,7 @@ export default {
   actions: {
     async readBoard({ commit }) {
       await getboards();
+      console.log(this.getboards);
       commit("getboards");
     },
   },
