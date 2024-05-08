@@ -11,7 +11,6 @@ export default {
   },
   actions: {
     async sendWrite({ commit }, data) {
-      console.log("storeBoard = " + data);
       await addboard(data);
       commit("setBoard", data);
     },
