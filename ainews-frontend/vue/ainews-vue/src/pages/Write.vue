@@ -37,7 +37,7 @@ export default {
   methods: {
     async sendWrite() {
       await this.$store.dispatch("sendWrite", this.board);
-      console.log(this.board);
+      console.log("pagesWirte = " + this.board);
       this.board = { category: "", title: "", content: "" };
       this.$router.push("/");
     },
