@@ -8,14 +8,12 @@
     <div class="boardgrid">
       <div class="flexcontainer">
         <div class="flexitem">
-          <div class="news">title1</div>
-          <div class="newsDate">date</div>
+          <div class="news">{{ board.title }}</div>
+          <div class="newsDate">{{ board.date }}</div>
         </div>
       </div>
       <div class="newstext">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, earum
-        cumque iste tempora laudantium accusamus sint quo maxime et velit, sed
-        sapiente est odio dignissimos voluptatem provident error rem id.
+        {{ board.content }}
       </div>
 
       <!-- 페이지 -->
@@ -39,6 +37,7 @@
     </div>
   </div>
   <!-- Top 버튼 -->
+  <input type="submit" class="button" value="Sign Up" @click="boardchk" />
   <footer>
     <div class="item14-footer">-㈜나몰라라컴퍼니-</div>
   </footer>
@@ -51,9 +50,21 @@
 export default {
   name: "EconomyBoard",
   data() {
-    return {};
+    return {
+      board: {
+        category: "",
+        title: "",
+        date: "",
+        content: "",
+      },
+    };
   },
-  methods: {},
+  methods: {
+    async boardchk() {
+      await this.$store.dispatch("viewBoards", this.board);
+      console.log(this.board.title);
+    },
+  },
 };
 </script>
 

@@ -102,7 +102,7 @@
               </li>
               <div v-if="chk">
                 <li class="nav-item" v-if="rolechk">
-                  <a class="nav-link" href="/write">writeNews</a>
+                  <a class="nav-link" href="">writeNews</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/login" @click="localremove"
@@ -173,6 +173,9 @@ export default {
     localremove() {
       sessionStorage.clear();
     },
+    // async nickname() {
+    //   await this.$store.dispatch("getterUser", this.id);
+    // },
   },
 };
 </script>
