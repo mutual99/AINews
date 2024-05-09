@@ -4,7 +4,7 @@ import board from "@/store/board";
 
 export default createStore({
   modules: {
-    user: user,
-    board: board,
+    user,
+    board,
   },
 });

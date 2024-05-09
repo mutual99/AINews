@@ -10,21 +10,25 @@ const routes = [
     path: "/",
     name: "Home",
     components: { default: Home, header: Header },
+    meta: { requiresAuth: false },
   },
   {
     path: "/login",
     name: "Login",
     components: { default: Login },
+    meta: { requiresAuth: false },
   },
   {
     path: "/write",
     name: "Write",
     components: { default: Write, header: Header },
+    meta: { requiresAuth: true },
   },
   {
     path: "/economy",
     name: "Economy",
     components: { default: Economy, header: Header },
+    meta: { requiresAuth: false },
   },
 ];
 

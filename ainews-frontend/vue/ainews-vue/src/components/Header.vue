@@ -73,7 +73,7 @@
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              <span class="myname">{{ nickname }}</span>
+              <span class="myname">{{ loginnickname.nickname }}</span>
             </h5>
             <button
               type="button"
@@ -98,11 +98,11 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <div v-if="chk">
                 <li class="nav-item" v-if="rolechk">
-                  <a class="nav-link" href="">writeNews</a>
+                  <a class="nav-link" href="/write">writeNews</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/login" @click="localremove"
@@ -165,7 +165,6 @@ export default {
   data() {
     return {
       chk: sessionStorage.getItem("role"),
-      nickname: sessionStorage.getItem("nickname"),
       rolechk: sessionStorage.getItem("role") === "ROLE_ADMIN",
     };
   },
@@ -173,9 +172,11 @@ export default {
     localremove() {
       sessionStorage.clear();
     },
-    // async nickname() {
-    //   await this.$store.dispatch("getterUser", this.id);
-    // },
+  },
+  computed: {
+    loginnickname() {
+      return this.$store.state.user.user;
+    },
   },
 };
 </script>

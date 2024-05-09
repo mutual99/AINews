@@ -17,35 +17,14 @@ p {
   margin-left: 80%;
   text-align: center;
 }
-.flexcontainer {
-  background-color: yellowgreen;
-  margin-top: 20px;
-  display: flex;
-}
-.flexitem {
+table {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
+  height: 100%;
+  margin-top: 20px;
 }
-.news {
-  font-size: 30px;
-  margin-left: 20px;
-  font-weight: bold;
+tr {
+  background-color: yellow;
 }
-.newstext {
-  background-color: pink;
-  margin-top: 10px;
-  height: 200px;
-}
-.newsDate {
-  margin-right: 20px;
-}
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 30px auto 20px auto;
+.table {
+  margin: 20px;
 }

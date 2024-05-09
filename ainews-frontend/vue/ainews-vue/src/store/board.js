@@ -18,9 +18,9 @@ export default {
       await addboard(data);
       commit("setBoard", data);
     },
-    async viewBoards({ commit }, data) {
-      await getboards(data);
-      commit("getBoards", data);
+    async viewBoards({ commit }) {
+      const response = await getboards(); // api
+      commit("getBoards", response.data);
     },
   },
   getters: {},

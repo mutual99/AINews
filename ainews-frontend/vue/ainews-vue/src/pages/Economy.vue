@@ -3,41 +3,19 @@
     <p>경제</p>
     <div class="boardDate">
       <!-- 현재 날짜 스크립트 -->
-      {{ nowdate }}
     </div>
-    <div class="boardgrid">
-      <div class="flexcontainer">
-        <div class="flexitem">
-          <div class="news">{{ board.title }}</div>
-          <div class="newsDate">{{ board.date }}</div>
-        </div>
-      </div>
-      <div class="newstext">
-        {{ board.content }}
-      </div>
-
-      <!-- 페이지 -->
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <table>
+      <tbody>
+        <tr class="table" v-for="board in allBoards" :key="board.no">
+          <td class="news">{{ board.title }}</td>
+          <td class="newsnickname">{{ board.nickname }}</td>
+          <td class="newscontent">{{ board.content }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
   <!-- Top 버튼 -->
-  <input type="submit" class="button" value="Sign Up" @click="boardchk" />
   <footer>
     <div class="item14-footer">-㈜나몰라라컴퍼니-</div>
   </footer>
@@ -50,25 +28,28 @@
 export default {
   name: "EconomyBoard",
   data() {
-    return {
-      board: {
-        category: "",
-        title: "",
-        date: "",
-        content: "",
-      },
-    };
+    return {};
+  },
+  mounted() {
+    this.boardchk();
   },
   methods: {
     async boardchk() {
-      await this.$store.dispatch("viewBoards", this.board);
-      console.log(this.board.title);
+      await this.$store.dispatch("viewBoards");
+      console.log(this.$store.state.board.boards);
+    },
+  },
+  computed: {
+    // 마지막 계산된 데이터
+    allBoards() {
+      return this.$store.state.board.boards;
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 @import "/src/assets/css/reset.css";
 @import "/src/assets/css/board.css";
+@import "/src/assets/css/main.css";
 </style>
