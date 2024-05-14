@@ -73,7 +73,7 @@
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              <span class="myname">{{ loginnickname.nickname }}</span>
+              <span class="myname">{{ nickname }}</span>
             </h5>
             <button
               type="button"
@@ -166,6 +166,7 @@ export default {
     return {
       chk: sessionStorage.getItem("role"),
       rolechk: sessionStorage.getItem("role") === "ROLE_ADMIN",
+      nickname: sessionStorage.getItem("nickname"),
     };
   },
   methods: {

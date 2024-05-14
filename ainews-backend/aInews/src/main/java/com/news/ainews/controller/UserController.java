@@ -31,14 +31,16 @@ public class UserController {
 
     // 로그인
     @PostMapping("/user/login")
-    public ResponseEntity login(@RequestBody User vo) {
+    public ResponseEntity login(@RequestBody User vo, HttpSession sessions) {
         User result = service.login(vo.getId(), vo.getPassword());
         System.out.println("컨트롤러 로그인 : " + result);
         System.out.println("컨트롤러 role : " + result.getRole());
         System.out.println("유저 정보 : " + result.getNickname());
         if(result!=null) {
             System.out.println("컨트롤러 부분 로그인 성공");
-
+            sessions.setAttribute("nickname", vo.getNickname());
+            sessions.setAttribute("role", vo.getRole());
+            System.out.println(sessions);
             return ResponseEntity.ok().body(result);
         } else {
             System.out.println("컨트롤러 부분 로그인 실패");

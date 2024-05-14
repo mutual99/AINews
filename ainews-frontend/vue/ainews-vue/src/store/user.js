@@ -22,6 +22,7 @@ export default {
       const result = await userlogin(data);
       commit("setUser", result.data);
       sessionStorage.setItem("role", result.data.role);
+      sessionStorage.setItem("nickname", result.data.nickname);
       console.log(result.data.role);
     },
     async getterUser({ commit }, id) {

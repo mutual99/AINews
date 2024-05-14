@@ -7,6 +7,7 @@
     <table>
       <tbody>
         <tr class="table" v-for="board in allBoards" :key="board.no">
+          <td class="">{{ board.category }}</td>
           <td class="news">{{ board.title }}</td>
           <td class="newsnickname">{{ board.nickname }}</td>
           <td class="newscontent">{{ board.content }}</td>
@@ -28,7 +29,9 @@
 export default {
   name: "EconomyBoard",
   data() {
-    return {};
+    return {
+      boardcategory: "economy",
+    };
   },
   mounted() {
     this.boardchk();
@@ -40,7 +43,7 @@ export default {
     },
   },
   computed: {
-    // 마지막 계산된 데이터
+    // 최종적으로 계산된 데이터
     allBoards() {
       return this.$store.state.board.boards;
     },

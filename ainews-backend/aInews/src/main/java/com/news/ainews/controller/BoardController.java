@@ -46,7 +46,7 @@ public class BoardController {
     public ResponseEntity select(@PathVariable("no") int no) {
         return ResponseEntity.ok().body(boardService.selct(no));
     }
-    
+
     // 전체보기
     @GetMapping("/board")
     public ResponseEntity selects(){
