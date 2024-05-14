@@ -20,8 +20,8 @@ export const upduser = async (data) => {
 };
 
 // 회원정보 탈퇴
-export const deluser = async (data) => {
-  return await instance.delete("user/deluser", data);
+export const deluser = async (id) => {
+  return await instance.delete("user/deluser/" + id);
 };
 
 // 회원정보 갖고 오기

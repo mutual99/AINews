@@ -38,13 +38,11 @@ public class UserService {
     }
 
     // 삭제
-    public User delUser(String id, String password) {
+    public void delUser(String id) {
         User user = dao.findById(id).orElse(null);
-        if(id.equals(user.getId()) && password.equals(user.getPassword())) {
-            dao.deleteById(id);
-            return user;
-        } else {
-            return null;
+        if(user.getId() != null ) {
+            dao.deleteById(user.getId());
+            System.out.println("서비스 부분 회원탈퇴 성공");
         }
     }
 

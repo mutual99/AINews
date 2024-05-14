@@ -3,13 +3,10 @@ package com.news.ainews.controller;
 import com.news.ainews.domain.User;
 import com.news.ainews.service.UserService;
 import jakarta.persistence.Id;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -51,13 +48,13 @@ public class UserController {
     }
 
     // 삭제
-    @DeleteMapping("/user/deluser")
-    public ResponseEntity delUSer(@RequestBody User user) {
-        User delresult = service.delUser(user.getId(), user.getPassword());
-        if(delresult != null) {
-            return ResponseEntity.ok().body(delresult);
+    @DeleteMapping("/user/deluser/{id}")
+    public ResponseEntity delUSer(@PathVariable("id") String id) {
+        service.delUser(id);
+        if(id != null) {
+            return ResponseEntity.ok().body(id);
         } else {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(id);
         }
 
     }

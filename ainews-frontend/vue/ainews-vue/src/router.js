@@ -35,6 +35,7 @@ const routes = [
     path: "/deluser",
     name: "Deluser",
     components: { default: Deluser },
+    meta: { requiresAuth: false },
   },
 ];
 
