@@ -346,4 +346,26 @@ span {
   align-items: start;
   color: black;
 }
+.userdata {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.deluser {
+  width: 15%;
+  color: gray;
+  margin: auto auto 20px auto;
+  font-size: 0.8rem;
+  border: none;
+}
+.upduser {
+  width: 15%;
+  color: gray;
+  margin: auto auto 20px auto;
+  font-size: 0.8rem;
+}
+.teamname {
+  text-align: center;
+  margin-bottom: 10px;
+}
 /* ====================================== */

@@ -31,16 +31,11 @@ public class UserController {
 
     // 로그인
     @PostMapping("/user/login")
-    public ResponseEntity login(@RequestBody User vo, HttpSession sessions) {
+    public ResponseEntity login(@RequestBody User vo) {
         User result = service.login(vo.getId(), vo.getPassword());
         System.out.println("컨트롤러 로그인 : " + result);
-        System.out.println("컨트롤러 role : " + result.getRole());
-        System.out.println("유저 정보 : " + result.getNickname());
         if(result!=null) {
             System.out.println("컨트롤러 부분 로그인 성공");
-            sessions.setAttribute("nickname", vo.getNickname());
-            sessions.setAttribute("role", vo.getRole());
-            System.out.println(sessions);
             return ResponseEntity.ok().body(result);
         } else {
             System.out.println("컨트롤러 부분 로그인 실패");
@@ -56,10 +51,15 @@ public class UserController {
     }
 
     // 삭제
-    @DeleteMapping("/user/deluser/{id}")
-    public ResponseEntity delUSer(@PathVariable("id") String id) {
-        service.delUser(id);
-        return ResponseEntity.ok().build();
+    @DeleteMapping("/user/deluser")
+    public ResponseEntity delUSer(@RequestBody User user) {
+        User delresult = service.delUser(user.getId(), user.getPassword());
+        if(delresult != null) {
+            return ResponseEntity.ok().body(delresult);
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
+
     }
 
     // 전체보기

@@ -4,6 +4,7 @@ import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Write from "@/pages/Write.vue";
 import Economy from "@/pages/Economy.vue";
+import Deluser from "@/pages/Deluser.vue";
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     name: "Economy",
     components: { default: Economy, header: Header },
     meta: { requiresAuth: false },
+  },
+  {
+    path: "/deluser",
+    name: "Deluser",
+    components: { default: Deluser },
   },
 ];
 

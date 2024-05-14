@@ -1,4 +1,4 @@
-import { adduser, userlogin, getuser } from "@/api/user";
+import { adduser, userlogin, getuser, deluser } from "@/api/user";
 
 export default {
   state: {
@@ -11,6 +11,9 @@ export default {
     getUser(state, user) {
       state.user = user;
     },
+    delUser(state, user) {
+      state.user = user;
+    },
   },
   actions: {
     async insertUser({ commit }, data) {
@@ -21,14 +24,21 @@ export default {
     async login({ commit }, data) {
       const result = await userlogin(data);
       commit("setUser", result.data);
-      sessionStorage.setItem("role", result.data.role);
+      sessionStorage.setItem("id", result.data.id);
+      sessionStorage.setItem("password", result.data.password);
+      sessionStorage.setItem("name", result.data.name);
       sessionStorage.setItem("nickname", result.data.nickname);
+      sessionStorage.setItem("role", result.data.role);
       console.log(result.data.role);
     },
     async getterUser({ commit }, id) {
       const result = await getuser(id);
       console.log(result);
       commit("getUser", result.id);
+    },
+    async deleteUser({ commit }, data) {
+      const delresult = await deluser(data);
+      commit("delUser", delresult.data);
     },
   },
 };
