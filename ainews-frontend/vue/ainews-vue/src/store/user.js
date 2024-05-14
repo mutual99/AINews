@@ -21,10 +21,9 @@ export default {
     async login({ commit }, data) {
       const result = await userlogin(data);
       commit("setUser", result.data);
-      const nickname = sessionStorage.setItem("nickname", result.data.nickname);
+      sessionStorage.setItem("nickname", result.data.nickname);
       sessionStorage.setItem("role", result.data.role);
       console.log(result.data.role);
-      Object.freeze(nickname);
     },
     async deleteUser({ commit }, id) {
       const result = await deluser(id);
