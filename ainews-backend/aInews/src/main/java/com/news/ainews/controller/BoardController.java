@@ -1,7 +1,6 @@
 package com.news.ainews.controller;
 
 import com.news.ainews.domain.Board;
-import com.news.ainews.domain.User;
 import com.news.ainews.service.BoardService;
 import com.news.ainews.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +22,8 @@ public class BoardController {
     @PostMapping("/board/addboard")
     public ResponseEntity addboard(@RequestBody Board board) {
         boardService.addBoard(board);
-            System.out.println("게시판 추가작성 : " + board);
-            return ResponseEntity.status(HttpStatus.OK).build();
+        System.out.println("게시판 추가작성 : " + board);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     // 수정
@@ -40,7 +39,7 @@ public class BoardController {
         boardService.delBoard(no);
         return ResponseEntity.ok().build();
     }
-    
+
     // 1개 보기
     @GetMapping("/board/{no}")
     public ResponseEntity select(@PathVariable("no") int no) {

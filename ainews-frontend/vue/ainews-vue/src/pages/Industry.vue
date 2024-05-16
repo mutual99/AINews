@@ -6,26 +6,15 @@
     </div>
     <table>
       <tbody>
-        <tr
-          class="table"
-          v-for="board in allBoards"
-          :key="board.no"
-          @click="detailpage"
-        >
-          <td class="news" v-if="board.category === 'economy'">
-            {{ board.no }}
-          </td>
-          <td class="news" v-if="board.category === 'economy'">
+        <tr class="table" v-for="board in allBoards" :key="board.no">
+          <td class="news" v-if="board.category === 'industry'">
             {{ board.title }}
           </td>
-          <td class="newsnickname" v-if="board.category === 'economy'">
+          <td class="newsnickname" v-if="board.category === 'industry'">
             {{ board.nickname }}
           </td>
-          <td class="newscontent" v-if="board.category === 'economy'">
+          <td class="newscontent" v-if="board.category === 'industry'">
             {{ board.content }}
-          </td>
-          <td class="newscontent" v-if="board.category === 'economy'">
-            {{ board.date }}
           </td>
         </tr>
       </tbody>
@@ -59,10 +48,6 @@ export default {
     },
     titlechk() {
       this.$store.dispatch("viewBoards");
-    },
-    detailpage() {
-      this.$store.dispatch("viewBoard", this.board.no);
-      this.$router.push("/detail/" + this.board.no);
     },
   },
   computed: {

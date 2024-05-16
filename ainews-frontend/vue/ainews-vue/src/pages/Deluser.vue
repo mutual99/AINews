@@ -1,8 +1,19 @@
 <template>
   <div>
-    <input type="text" placeholder="아이디 입력" v-model="user.id" />
-    <input type="text" placeholder="비밀번호 입력" v-model="user.password" />
+    <input
+      type="text"
+      placeholder="아이디 입력"
+      v-model="user.id"
+      value="user.id"
+    />
+    <input
+      type="text"
+      placeholder="비밀번호 입력"
+      v-model="user.password"
+      value="user.password"
+    />
     <input type="button" value="회원 탈퇴" @click="deluserdata" />
+    <input type="button" value="취소" @click="canceldata" />
   </div>
 </template>
 
@@ -20,14 +31,15 @@ export default {
   methods: {
     async deluserdata() {
       await this.$store.dispatch("deleteUser", this.user.id);
-      console.log(this.user);
       if (this.user.id === "" || this.user.password === "") {
         alert("아이디 또는 비밀번호를 확인하세요.");
         return;
-      } else {
-        window.close();
       }
+      this.$router.push("/login");
       sessionStorage.clear();
+    },
+    canceldata() {
+      this.$router.push("/");
     },
   },
 };

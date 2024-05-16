@@ -29,4 +29,7 @@ public class Board {
 
     @Column
     private String content;
+
+    @Column
+    private Date date;
 }

@@ -155,9 +155,11 @@
           </div>
           <div class="userdata" v-if="chk">
             <div class="deluser">
-              <input type="button" value="회원탈퇴" @click="showpopup" />
+              <div class="">
+                <a href="/deluser" @click="showpopup">회원탈퇴</a>
+              </div>
             </div>
-            <div class="upduser"><a href="/">회원수정</a></div>
+            <div class="upduser"><a href="/upduser">회원수정</a></div>
           </div>
           <div class="teamname">-㈜나몰라라컴퍼니-</div>
         </div>
@@ -180,13 +182,7 @@ export default {
     localremove() {
       sessionStorage.clear();
     },
-    showpopup() {
-      window.open(
-        "deluser",
-        "회원탈퇴 창",
-        "width=800, height=700, left=500, top=150"
-      );
-    },
+    showpopup() {},
   },
   computed: {
     loginnickname() {

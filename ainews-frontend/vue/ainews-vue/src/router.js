@@ -2,9 +2,12 @@ import { createRouter, createWebHistory } from "vue-router";
 import Header from "@/components/Header.vue";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
-import Write from "@/pages/Write.vue";
-import Economy from "@/pages/Economy.vue";
 import Deluser from "@/pages/Deluser.vue";
+import Upduser from "@/pages/Upduser.vue";
+import Write from "@/pages/Write.vue";
+import Detail from "@/pages/Detail.vue";
+import Economy from "@/pages/Economy.vue";
+import Industry from "@/pages/Industry.vue";
 
 const routes = [
   {
@@ -20,10 +23,28 @@ const routes = [
     meta: { requiresAuth: false },
   },
   {
+    path: "/deluser",
+    name: "Deluser",
+    components: { default: Deluser },
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/upduser",
+    name: "Upduser",
+    components: { default: Upduser },
+    meta: { requiresAuth: true },
+  },
+  {
     path: "/write",
     name: "Write",
     components: { default: Write, header: Header },
     meta: { requiresAuth: true },
+  },
+  {
+    path: "/detail/:no",
+    name: "Detail",
+    components: { default: Detail, header: Header },
+    meta: { requiresAuth: false },
   },
   {
     path: "/economy",
@@ -32,9 +53,9 @@ const routes = [
     meta: { requiresAuth: false },
   },
   {
-    path: "/deluser",
-    name: "Deluser",
-    components: { default: Deluser },
+    path: "/industry",
+    name: "Industry",
+    components: { default: Industry, header: Header },
     meta: { requiresAuth: false },
   },
 ];

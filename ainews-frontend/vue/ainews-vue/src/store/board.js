@@ -1,4 +1,4 @@
-import { addboard, getboards } from "@/api/board";
+import { addboard, getboards, getboard } from "@/api/board";
 
 export default {
   state: {
@@ -12,6 +12,9 @@ export default {
     getBoards(state, boards) {
       state.boards = boards;
     },
+    getBoard(state, board) {
+      state.board = board;
+    },
   },
   actions: {
     async sendWrite({ commit }, data) {
@@ -21,6 +24,10 @@ export default {
     async viewBoards({ commit }) {
       const response = await getboards(); // api
       commit("getBoards", response.data);
+    },
+    async viewBoard({ commit }, no) {
+      await getboard();
+      commit("getBoard", no);
     },
   },
   getters: {},
