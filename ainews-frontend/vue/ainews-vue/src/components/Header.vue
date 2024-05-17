@@ -169,14 +169,27 @@
 </template>
 
 <script>
+import { secureStorage } from "@/store/user";
+
 export default {
   name: "GetUser",
   data() {
     return {
-      chk: sessionStorage.getItem("role"),
-      rolechk: sessionStorage.getItem("role") === "ROLE_ADMIN",
-      nickname: sessionStorage.getItem("nickname"),
+      chk: null,
+      rolechk: false,
+      nickname: null,
     };
+  },
+  created() {
+    const user = secureStorage.getItem("user");
+    this.nickname = user.nickname;
+    console.log(user.role);
+    if (user.role != null) {
+      this.chk = true;
+    }
+    if (user.role != "ROLE_USER") {
+      this.rolechk = true;
+    }
   },
   methods: {
     localremove() {

@@ -1,16 +1,10 @@
 <template>
   <div>
+    <input type="text" placeholder="아이디 입력" v-model="user.id" />
     <input
-      type="text"
-      placeholder="아이디 입력"
-      v-model="user.id"
-      value="user.id"
-    />
-    <input
-      type="text"
+      type="password"
       placeholder="비밀번호 입력"
       v-model="user.password"
-      value="user.password"
     />
     <input type="button" value="회원 탈퇴" @click="deluserdata" />
     <input type="button" value="취소" @click="canceldata" />
@@ -18,6 +12,8 @@
 </template>
 
 <script>
+import { secureStorage } from "@/store/user";
+
 export default {
   name: "Deleteuser",
   data() {
@@ -30,13 +26,28 @@ export default {
   },
   methods: {
     async deluserdata() {
-      await this.$store.dispatch("deleteUser", this.user.id);
+      const result = secureStorage.getItem("user");
+      console.log("아이디 " + result.id);
+      console.log("패스워드 " + result.password);
       if (this.user.id === "" || this.user.password === "") {
-        alert("아이디 또는 비밀번호를 확인하세요.");
+        alert("아이디 또는 비밀번호를 입력하세요.");
+        return;
+      } else if (
+        result.id != this.user.id ||
+        result.password != this.user.password
+      ) {
+        alert("아이디 또는 비밀번호를 다시 확인해 주세요.");
         return;
       }
-      this.$router.push("/login");
-      sessionStorage.clear();
+      try {
+        await this.$store.dispatch("deleteUser", this.user.id);
+        alert("회원 탈퇴가 완료되었습니다.");
+        sessionStorage.clear();
+        this.$router.push("/login");
+      } catch (error) {
+        console.error(error);
+        alert("회원 탈퇴에 실패했습니다. 다시 시도해주세요.");
+      }
     },
     canceldata() {
       this.$router.push("/");

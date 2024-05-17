@@ -2,7 +2,7 @@
   <div class="bodynews">
     <p>경제</p>
     <div class="boardDate">
-      <!-- 현재 날짜 스크립트 -->
+      {{ currentDate }}
     </div>
     <table>
       <tbody>
@@ -10,7 +10,7 @@
           class="table"
           v-for="board in allBoards"
           :key="board.no"
-          @click="detailpage"
+          @click="detailpage(board.no)"
         >
           <td class="news" v-if="board.category === 'economy'">
             {{ board.no }}
@@ -25,7 +25,7 @@
             {{ board.content }}
           </td>
           <td class="newscontent" v-if="board.category === 'economy'">
-            {{ board.date }}
+            {{ formatDate(board.date) }}
           </td>
         </tr>
       </tbody>
@@ -47,6 +47,7 @@ export default {
   data() {
     return {
       boardcategory: "economy",
+      currentDate: new Date().toLocaleDateString(), // 현재 날짜를 추가합니다.
     };
   },
   mounted() {
@@ -57,16 +58,17 @@ export default {
       await this.$store.dispatch("viewBoards");
       console.log(this.$store.state.board.boards);
     },
-    titlechk() {
-      this.$store.dispatch("viewBoards");
+    detailpage(boardNo) {
+      this.$store.dispatch("viewBoard", boardNo);
+      this.$router.push("/detail/" + boardNo);
     },
-    detailpage() {
-      this.$store.dispatch("viewBoard", this.board.no);
-      this.$router.push("/detail/" + this.board.no);
+    formatDate(date) {
+      // 날짜를 원하는 형식으로 포맷팅합니다.
+      return new Date(date).toLocaleDateString();
     },
   },
   computed: {
-    // 최종적으로 계산된 데이터
+    // 최종적으로 계산된 데이터(?)
     allBoards() {
       return this.$store.state.board.boards;
     },

@@ -130,18 +130,38 @@ export default {
   },
   methods: {
     async sendUser() {
-      await this.$store.dispatch("insertUser", this.user);
-      this.user = { id: "", password: "", name: "", nickname: "" };
-      this.$router.push("/login");
+      if (
+        !this.user.id ||
+        !this.user.password ||
+        !this.user.name ||
+        !this.user.nickname
+      ) {
+        alert("모든 필드를 채워주세요.");
+        return;
+      }
+      try {
+        await this.$store.dispatch("insertUser", this.user);
+        this.user = { id: "", password: "", name: "", nickname: "" };
+        alert("회원가입이 완료되었습니다.");
+        this.$router.push("/login");
+      } catch (error) {
+        console.error(error);
+        alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+      }
     },
     async userLogin() {
-      await this.$store.dispatch("login", this.login);
-      console.log(this.login);
-      if (this.login.id == "" || this.login.password == "") {
+      if (!this.login.id || !this.login.password) {
         alert("아이디 또는 비밀번호를 입력하세요.");
         return;
       }
-      this.$router.push("/");
+      try {
+        await this.$store.dispatch("login", this.login);
+        alert("로그인 성공");
+        this.$router.push("/");
+      } catch (error) {
+        console.error(error);
+        alert("로그인에 실패했습니다. 다시 시도해주세요.");
+      }
     },
   },
 };

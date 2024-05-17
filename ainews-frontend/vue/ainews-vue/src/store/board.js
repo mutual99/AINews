@@ -26,9 +26,11 @@ export default {
       commit("getBoards", response.data);
     },
     async viewBoard({ commit }, no) {
-      await getboard();
-      commit("getBoard", no);
+      const response = await getboard(no);
+      commit("getBoard", response.data);
     },
   },
-  getters: {},
+  getters: {
+    currentBoard: (state) => state.board,
+  },
 };
