@@ -76,7 +76,6 @@ export default {
   actions: {
     // 회원가입
     async insertUser({ commit }, data) {
-      console.log(data);
       await adduser(data);
       commit("setUser", data);
     },
@@ -85,11 +84,11 @@ export default {
       const result = await userlogin(data);
       commit("setUser", result.data);
       secureStorage.setItem("user", {
-        nickname: result.data.nickname,
-        role: result.data.role,
         id: result.data.id,
         password: result.data.password,
         name: result.data.name,
+        nickname: result.data.nickname,
+        role: result.data.role,
       });
     },
     // 회원탈퇴
@@ -101,14 +100,13 @@ export default {
     // 회원정보수정
     async updateUser({ commit }, data) {
       const result = await upduser(data);
-      console.log(data);
       commit("setUser", data);
       secureStorage.setItem("user", {
-        nickname: result.data.nickname,
-        role: result.data.role,
         id: result.data.id,
         password: result.data.password,
         name: result.data.name,
+        nickname: result.data.nickname,
+        role: result.data.role,
       });
     },
   },
