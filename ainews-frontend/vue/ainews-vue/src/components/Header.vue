@@ -36,10 +36,10 @@
         <a class="navbar-brand" href="/"> </a>
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link" href="economy">경제</a>
+            <a class="nav-link" href="/economy">경제</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="industry">산업</a>
+            <a class="nav-link" href="/industry">산업</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="society">사회</a>
@@ -127,11 +127,11 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="economy">경제</a>
+                    <a class="dropdown-item" href="/economy">경제</a>
                     <hr />
                   </li>
                   <li>
-                    <a class="dropdown-item" href="industry">산업</a>
+                    <a class="dropdown-item" href="/industry">산업</a>
                     <hr />
                   </li>
                   <li>

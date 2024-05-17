@@ -5,16 +5,21 @@
       {{ currentDate }}
     </div>
     <table>
+      <thead>
+        <tr>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>내용</th>
+          <th>작성 시간</th>
+        </tr>
+      </thead>
       <tbody>
         <tr
           class="table"
-          v-for="board in allBoards"
+          v-for="board in sortedBoards"
           :key="board.no"
           @click="detailpage(board.no)"
         >
-          <td class="news" v-if="board.category === 'economy'">
-            {{ board.no }}
-          </td>
           <td class="news" v-if="board.category === 'economy'">
             {{ board.title }}
           </td>
@@ -71,6 +76,11 @@ export default {
     // 최종적으로 계산된 데이터(?)
     allBoards() {
       return this.$store.state.board.boards;
+    },
+    sortedBoards() {
+      return this.allBoards
+        .filter((board) => board.category === "economy")
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
     },
   },
 };
