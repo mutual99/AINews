@@ -156,7 +156,7 @@
           <div class="userdata" v-if="chk">
             <div class="deluser">
               <div class="">
-                <a href="/deluser" @click="showpopup">회원탈퇴</a>
+                <a href="/deluser">회원탈퇴</a>
               </div>
             </div>
             <div class="upduser"><a href="/upduser">회원수정</a></div>
@@ -177,17 +177,17 @@ export default {
     return {
       chk: null,
       rolechk: false,
-      nickname: null,
+      nickname: "",
     };
   },
   created() {
     const user = secureStorage.getItem("user");
-    this.nickname = user.nickname;
-    console.log(user.role);
-    if (user.role != null) {
+    this.nickname = user?.nickname;
+    console.log(user?.role);
+    if (user?.role != null) {
       this.chk = true;
     }
-    if (user.role != "ROLE_USER") {
+    if (user?.role != "ROLE_USER") {
       this.rolechk = true;
     }
   },
@@ -195,7 +195,6 @@ export default {
     localremove() {
       sessionStorage.clear();
     },
-    showpopup() {},
   },
   computed: {
     loginnickname() {
