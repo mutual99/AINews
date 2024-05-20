@@ -126,7 +126,7 @@
     <div class="newsboard">경제</div>
     <!-- 각각의 이미지 -->
     <div class="mySlides">
-      <img :src="economy" style="width: 100%; opacity: 0.5; z-index: -1" />
+      <img :src="imgeconomy" style="width: 100%; opacity: 0.5; z-index: -1" />
       <span class="image-text"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione veniam
         iusto cum expedita esse qui totam eos quas nam, praesentium officiis
@@ -135,7 +135,7 @@
       >
     </div>
     <div class="mySlides">
-      <img :src="economy" style="width: 100%; opacity: 0.5" /><span
+      <img :src="imgeconomy" style="width: 100%; opacity: 0.5" /><span
         class="image-text"
         >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae
         quasi cupiditate dolorum id, sunt error doloremque at ipsum incidunt,
@@ -145,7 +145,7 @@
     </div>
 
     <div class="mySlides">
-      <img :src="economy" style="width: 100%; opacity: 0.5" /><span
+      <img :src="imgeconomy" style="width: 100%; opacity: 0.5" /><span
         class="image-text"
         >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa
         assumenda asperiores debitis quidem quas aspernatur adipisci vitae alias
@@ -175,13 +175,11 @@
 </template>
 
 <script>
-import economy from "@/assets/image/economy.jpg";
-
 export default {
   name: "Homescript",
   data() {
     return {
-      economy,
+      imgeconomy: "http://localhost:8081/img/economy.b7b51751.jpg",
     };
   },
   methods: {},
