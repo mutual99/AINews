@@ -15,9 +15,6 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @Autowired
-    private UserService userService;
-
     // 작성
     @PostMapping("/board/addboard")
     public ResponseEntity addboard(@RequestBody Board board) {
